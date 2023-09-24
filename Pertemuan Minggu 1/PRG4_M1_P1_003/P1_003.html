@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>P1_003_1</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+        /*CSS internal dimulai disini*/
+
+        /*Gaya untuk elemen dengan css "my-class"*/
+        .my-class{
+            font-family:'Birch std';
+            font-size:30px;
+        }
+        
+        /*Gaya untuk elemen <ul> dengan id "my-list"*/
+        #my-list{
+            color : #0026ff;
+        }
+        /*CSS internal berkahir disini*/
+    </style>
+    <script>
+        function validateForm(){
+            var nama = document.getElementById("nama").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var namaPattern = /^[a-zA-Z\s]+$/; // Pola regex untuk huruf dan spasi
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; // Pola regex untuk email
+
+            if (nama === "") {
+                alert("Nama tidak boleh kosong");
+                return false;
+            } else if (!namaPattern.test(nama)) {
+                alert("Nama hanya boleh mengandung huruf dan spasi");
+                return false;
+            }
+
+            if (email === "") {
+                alert("Email tidak boleh kosong");
+                return false;
+            } else if (!emailPattern.test(email)) {
+                alert("Format Email tidak valid");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1 style="color : blue;">Ini adalah Heading 1</h1>
+    <h2 style="color : red;">Ini adalah Heading 2</h2>
+    <h3 style="font-size : 18px;">Ini adalah Heading 3</h3>
+    <p style="background-color : yellow;">Ini adalah Sebuah paragraf</p>
+
+    <!--Contoh Gambar-->
+    <img src="gambar.jpg" alt="Deskripsi Gambar" />
+    <br />
+    <!--Contoh Tautan (LINK)-->
+    <a class="my-class" href="https://www.google.com">Ini Adalah Tautan Google</a>
+
+    <!--Contoh Daftar (LIST)-->
+    <ul id="my-list">
+        <li>Pemrograman 4</li>
+        <li>Pemrograman 5</li>
+        <li>Rekayasa Perangkat Lunak</li>
+    </ul>
+
+    <!--Contoh Table-->
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Usia</th>
+        </tr>
+        <tr>
+            <td>Roni</td>
+            <td>21</td>
+        </tr>
+        <tr>
+            <td>Hanif</td>
+            <td>22</td>
+        </tr>
+    </table>
+
+    <!--Contoh Formulir-->
+    <form onsubmit="return validateForm()">
+        <label for="nama">NAMA:</label>
+        <input type="text" id="nama" name="nama"><br />
+
+        <label for="email">EMAIL:</label>
+        <input type="email" id="email" name="email"><br />
+
+        <input type="submit" value="Kirim" />
+    </form>
+</body>
+</html>

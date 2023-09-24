@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Mari Pintar</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..." /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentangkami.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="daftar.html">Daftar Sekarang</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Daftarkan dirimu</h2>
+                <h3 class="section-subheading text-muted">Mari menjadi ahli bersama kami.</h3>
+            </div>
+
+            <style>
+                /* Mengubah warna teks pada checkbox dan radio button menjadi putih */
+                label {
+                    color: white;
+                }
+            </style>
+
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form" onsubmit="return validateForm()">
+                <div class="row">
+                    <div class="form-group mt-3">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Lengkap" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="alamat">Alamat</label>
+                        <textarea class="form-control" name="alamat" id="alamat" placeholder="Alamat" required></textarea>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="jenjang">Jenjang</label><br />
+                        <label>
+                            <input type="radio" name="jenjang" id="SMA_SMK" value="SMA/SMK">
+                            SMA/SMK
+                        </label><br />
+                        <label>
+                            <input type="radio" name="jenjang" id="PerguruanTinggi" value="PerguruanTinggi">
+                            Perguruan Tinggi
+                        </label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="kelas">Pilihan Kelas</label>
+                        <select class="form-control" id="kelas" name="kelas">
+                            <option value="kelas1">Kelas Privat</option>
+                            <option value="kelas2">Kelas Umum</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="matkul">Pilihan Mata Kuliah</label><br />
+                        <label>
+                            <input type="checkbox" name="matkul[]" id="prg1" value="C">
+                            C
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="matkul[]" id="prg2" value="#">
+                            #
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="matkul[]" id="phyton" value="Phyton">
+                            Phyton
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="matkul[]" id="prg1" value="SQL">
+                            SQL
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="matkul[]" id="prg3" value="Java">
+                            Java
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="matkul[]" id="prg4" value="ASP.NET">
+                            ASP.NET
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="matkul[]" id="prg5" value="PHP">
+                            PHP
+                        </label><br>
+                    </div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function validateForm() {
+            // Validasi Nama
+            let nama = document.getElementById("nama").value.trim();
+            if (nama === "") {
+                alert("Nama tidak boleh kosong");
+                return false;
+            }
+
+            let namaPattern = /^[a-zA-Z\s]*$/; // Pola regex untuk huruf dan spasi
+            if (!namaPattern.test(nama)) {
+                alert("Nama hanya boleh mengandung huruf dan spasi");
+                return false;
+            }
+
+            // Validasi Email
+            let email = document.getElementById("email").value.trim();
+            let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; // Pola regex untuk email
+            if (!emailPattern.test(email)) {
+                alert("Format Email tidak valid");
+                return false;
+            }
+
+            // Validasi Alamat
+            let alamat = document.getElementById("alamat").value.trim();
+            if (alamat === "") {
+                alert("Alamat tidak boleh kosong");
+                return false;
+            }
+
+            // Validasi Jenjang
+            let jenjangSMA_SMK = document.getElementById("SMA_SMK").checked;
+            let jenjangPerguruanTinggi = document.getElementById("PerguruanTinggi").checked;
+            if (!jenjangSMA_SMK && !jenjangPerguruanTinggi) {
+                alert("Harap pilih Jenjang");
+                return false;
+            }
+
+            // Validasi Pilihan Mata Kuliah
+            let checkboxes = document.querySelectorAll("input[name='matkul[]']");
+            let isChecked = false;
+            for (let checkbox of checkboxes) {
+                if (checkbox.checked) {
+                    isChecked = true;
+                    break;
+                }
+            }
+            if (!isChecked) {
+                alert("Harap pilih setidaknya satu Mata Kuliah");
+                return false;
+            }
+
+            return true; // Jika semua validasi berhasil
+        }
+    </script>
+</body>
+</html>

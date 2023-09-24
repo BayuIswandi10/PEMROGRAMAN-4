@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Modifikasi_P2_003</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="header1">Modifikasi_P2_003</div>
+
+    <form onsubmit="return validate()">
+        <table>
+            <tr>
+                <td>Nama</td>
+                <td>:</td>
+                <td>
+                    <input id="nama" type="text" maxlength="20"/>
+                </td>
+                <td id="eror_nama" style="color: red"></td>
+            </tr>
+            <tr>
+                <td>Mata Kuliah</td>
+                <td>:</td>
+                <td>
+                    <select id="matakuliah">
+                        <option value="">Pilih Mata Kuliah</option>
+                        <option value="Matematika">Matematika</option>
+                        <option value="Fisika">Fisika</option>
+                        <option value="Kimia">Kimia</option>
+                    </select>
+                </td>
+                <td id="eror_matakuliah" style="color: red"></td>
+            </tr>
+            <tr>
+                <td>Nilai</td>
+                <td>:</td>
+                <td>
+                    <input id="nilai" type="number" min="0" max="100" />
+                </td>
+                <td id="eror_nilai" style="color: red"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="resetForm()">
+                        Batal
+                    </button>
+                </td>
+                <td></td>
+                <td>
+                    <input type="submit" value="Kirim" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function validate() {
+            let nama = document.getElementById("nama").value;
+            let matakuliah = document.getElementById("matakuliah").value;
+            let nilai = document.getElementById("nilai").value;
+            let validate = true;
+
+            // Validasi nama
+            if (nama.trim() === "") {
+                document.getElementById("eror_nama").innerText = "Harap isi field Nama!";
+                validate = false;
+            } else if (nama.length > 20) {
+                document.getElementById("eror_nama").innerText = "Nama maksimal 20 huruf!";
+                validate = false;
+            } else {
+                let namaPattern = /^[a-zA-Z\s]*$/;  // Pola regex untuk huruf dan spasi
+                if (!namaPattern.test(nama.trim())) {
+                    document.getElementById("eror_nama").innerText = "Nama harus berisi huruf atau spasi!";
+                    validate = false;
+                } else {
+                    document.getElementById("eror_nama").innerText = "";
+                }
+            }
+
+            // Validasi mata kuliah
+            if (matakuliah === "") {
+                document.getElementById("eror_matakuliah").innerText = "Harap pilih Mata Kuliah!";
+                validate = false;
+            } else {
+                document.getElementById("eror_matakuliah").innerText = "";
+            }
+
+            // Validasi nilai
+            if (nilai === "") {
+                document.getElementById("eror_nilai").innerText = "Harap isi field nilai!";
+                validate = false;
+            } else {
+                document.getElementById("eror_nilai").innerText = "";
+            }
+            return validate;
+        }
+
+        function resetForm() {
+            document.getElementById("nama").value = "";
+            document.getElementById("matakuliah").value = "";
+            document.getElementById("nilai").value = "";
+            document.getElementById("eror_nama").innerText = "";
+            document.getElementById("eror_matakuliah").innerText = "";
+            document.getElementById("eror_nilai").innerText = "";
+        }
+    </script>
+</body>
+</html>
